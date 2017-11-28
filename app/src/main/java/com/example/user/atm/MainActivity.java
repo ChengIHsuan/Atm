@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void login(View view){
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
