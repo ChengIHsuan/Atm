@@ -16,19 +16,37 @@ public class MainActivity extends AppCompatActivity {
     boolean logon = false;
 
     public static final int FUNC_LOGIN = 1;
+    public static final int FUNC_INFO = 2;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == FUNC_LOGIN){
-            if (resultCode == RESULT_OK){
-                String userid = data.getStringExtra("LOGIN_USERID");
-                String passwd = data.getStringExtra("LOGIN_PASSWD");
-                Log.d("Result", userid + "/" + passwd);
-                Toast.makeText(this, "Login userid: " + userid, Toast.LENGTH_SHORT).show();
-            }else{
-                finish();
-            }
+        switch (requestCode) {
+            case FUNC_LOGIN:
+                if (resultCode == RESULT_OK) {
+                    String userid = data.getStringExtra("LOGIN_USERID");
+                    Toast.makeText(this, "Hello,  " + userid, Toast.LENGTH_SHORT).show();
+                    getSharedPreferences("atm", MODE_PRIVATE)
+                            .edit()
+                            .putString("USERID", userid)
+                            .apply();
+                } else {
+                    finish();
+                }
+                break;
+            case FUNC_INFO:
+                if (resultCode == RESULT_OK) {
+                    String nickname = data.getStringExtra("EXTRA_NICKNAME");
+                    String phone = data.getStringExtra("EXTRA_PHONE");
+                    Toast.makeText(this, "暱稱 : " + nickname + ", 電話 : " + phone, Toast.LENGTH_SHORT).show();
+                    getSharedPreferences("atm", MODE_PRIVATE)
+                            .edit()
+                            .putString("NICKNAME", nickname)
+                            .putString("PHONE", phone)
+                            .apply();
+                } else {
+                    finish();
+                }
         }
     }
 
@@ -42,18 +60,15 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+                startActivityForResult(intent, FUNC_INFO);
             }
         });
 
         if (!logon) {
             Intent intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-        startActivityForResult(intent, FUNC_LOGIN);
+            startActivityForResult(intent, FUNC_LOGIN);
         }
-        Intent intent = getIntent();
-//        String username = intent.getStringExtra("EXTRA_NAME", null);
     }
 
 
