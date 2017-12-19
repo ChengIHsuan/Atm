@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+       // startActivity(new Intent(this, Ch8Activity.class));
+
         if (!logon) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, FUNC_LOGIN);
