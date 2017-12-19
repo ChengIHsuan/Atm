@@ -37,10 +37,10 @@ public class UserInfoActivity extends AppCompatActivity {
 
         ages = (Spinner) findViewById(R.id.ages);
         ArrayList<String> data = new ArrayList<>();
-        for (int i = 15; i <= 40; i++){
-            data.add(i+"");
-        }
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);
+//        for (int i = 15; i <= 40; i++){
+//            data.add(i+"");
+//        }
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.ages, android.R.layout.simple_list_item_1);
         ages.setAdapter(adapter);
     }
 
