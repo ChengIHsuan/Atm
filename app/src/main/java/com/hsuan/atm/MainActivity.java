@@ -63,12 +63,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        startActivity(new Intent(this, FinanceActivity.class));
+//        startActivity(new Intent(this, FinanceActivity.class));
 
         if (!logon) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, FUNC_LOGIN);
         }
+    }
+
+    public void ch8(View view){
+        startActivity(new Intent(this, Ch8Activity.class));
+    }
+    public void finance(View view){
+        startActivity(new Intent(this, FinanceActivity.class));
     }
 
 

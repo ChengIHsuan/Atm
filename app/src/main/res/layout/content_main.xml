@@ -17,4 +17,46 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/ib_finance"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        android:onClick="finance"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/textSelectHandle" />
+
+    <ImageButton
+        android:id="@+id/ib_ch8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:onClick="ch8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/textSelectHandle" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="108dp"
+        android:layout_marginTop="16dp"
+        android:text="Ch8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_ch8" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="99dp"
+        android:layout_marginTop="16dp"
+        android:text="Finance"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_finance" />
+
 </android.support.constraint.ConstraintLayout>
