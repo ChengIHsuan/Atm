@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.user.atm">
+    package="com.hsuan.atm">
 
     <application
         android:allowBackup="true"
@@ -21,7 +21,12 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".UserInfoActivity" />
-        <activity android:name=".Ch8Activity"></activity>
+        <activity android:name=".Ch8Activity" />
+        <activity
+            android:name=".FinanceActivity"
+            android:label="@string/title_activity_finance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddActivity"></activity>
     </application>
 
 </manifest>

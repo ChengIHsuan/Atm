@@ -1,4 +1,4 @@
-package com.example.user.atm;
+package com.hsuan.atm;
 
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;

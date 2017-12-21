@@ -1,4 +1,4 @@
-package com.example.user.atm;
+package com.hsuan.atm;
 
 import org.junit.Test;
 
