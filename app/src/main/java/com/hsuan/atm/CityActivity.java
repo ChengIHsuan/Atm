@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class CityActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private static final String TAG = CityActivity.class.getSimpleName();
     private String[] cities;
     private ListView city;
     private String[] area;
@@ -21,19 +20,18 @@ public class CityActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city);
         city = (ListView) findViewById(R.id.city);
-        cities = new String[] {"新北市", "台北市", "基隆市", "桃園市"};
+        cities = new String[]{"新北市", "台北市", "基隆市", "桃園市"};
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cities);
         city.setAdapter(adapter);
         city.setOnItemClickListener(this);
-
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long item) {
+    public void onItemClick(AdapterView<?> adapterView, View view, final int position, long item) {
 //        TextView tv = (TextView) view;
 //        tv.setText(tv.getText() + "*");
         area = null;
-        switch(position){
+        switch (position) {
             case 0:
                 area = new String[]{"新莊區", "板橋區", "中和區", "三重區", "新店區", "土城區", "永和區", "蘆洲區", "汐止區", "樹林區", "淡水區", "三峽區", "林口區", "鶯歌區", "五股區", "泰山區", "瑞芳區", "八里區", "深坑區", "三芝區", "萬里區", "金山區", "貢寮區", "石門區", "雙溪區", "石碇區", "坪林區", "烏來區", "平溪區"};
                 break;
@@ -52,8 +50,10 @@ public class CityActivity extends AppCompatActivity implements AdapterView.OnIte
         city.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(CityActivity.this, ("「" + area[i] +"」"), Toast.LENGTH_SHORT ).show();
+                Toast.makeText(CityActivity.this, (cities[position] + area[i]), Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
+
 }
